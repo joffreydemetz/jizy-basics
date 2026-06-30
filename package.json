@@ -1,0 +1,33 @@
+{
+  "name": "jizy-basics",
+  "version": "1.0.0",
+  "browser": "dist/css/jizy-basics.min.css",
+  "main": "lib/index.js",
+  "type": "module",
+  "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/)",
+  "license": "MIT",
+  "description": "Shared CSS basics (normalize/reset + base utilities) and the shared front layer for the jizy/callisto ecosystem",
+  "homepage": "https://jizy.joffreydemetz.com/basics",
+  "keywords": [
+    "JiZy",
+    "normalize",
+    "reset",
+    "css"
+  ],
+  "files": [
+    "dist/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "jpack:dist": "node ./cli/jpack.js",
+    "jpack:dist-debug": "node ./cli/jpack.js --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joffreydemetz/jizy-basics.git"
+  },
+  "devDependencies": {
+    "jizy-packer": "^2.1.44",
+    "less": "^4.4.1"
+  }
+}

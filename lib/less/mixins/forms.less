@@ -1,0 +1,29 @@
+.form-field-feedback(@color; @border-color: @color; @background-color: @color){
+	.field {
+		input,
+		select,
+		textarea,
+		.redactor-box {
+			color: @color !important;
+			border-color: @border-color !important;
+		}
+
+		.field-group-addon {
+			color: @color !important;
+			border-color: @border-color !important;
+			background-color: @background-color !important;
+		}
+
+		.field-group-btn button {
+			border-top-color: @border-color;
+			border-right-color: @border-color;
+			border-bottom-color: @border-color;
+		}
+	}
+
+	.help,
+	&.checkbox .field label,
+	&.radio .field label {
+		color: @color !important;
+	}
+}

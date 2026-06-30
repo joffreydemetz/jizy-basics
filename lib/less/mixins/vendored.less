@@ -1,0 +1,45 @@
+// Pruned set of vendor/compat helpers. The IE-era husks (.opacity,
+// .reset-gradient-filter — commented-out DXImageTransform filters) and the
+// unused .autofill / .hyphens were dropped during the move out of
+// callisto-installer; only live, modern helpers remain.
+
+.break-inside(@value: avoid){
+	page-break-inside: @value;
+	         break-inside: @value;
+}
+
+.flex-center-all(){
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.linear-gradient(@start-color; @end-color; @start-percent: 0%; @end-percent: 100%; @bg-color: @start-color){
+	background-color: @bg-color;
+	background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent);
+}
+
+.linear-gradient-x(@start-color; @end-color; @start-percent: 0%; @end-percent: 100%; @bg-color: @start-color){
+	background-color: @bg-color;
+	background-image: linear-gradient(to right, @start-color @start-percent, @end-color @end-percent);
+}
+
+.placeholder(@color: @gray-light){
+	&::-moz-placeholder {
+		color: @color;
+		opacity: .9;
+		font-style: italic;
+	}
+
+	&:-ms-input-placeholder {
+		color: @color;
+		opacity: .9;
+		font-style: italic;
+	}
+
+	&::-webkit-input-placeholder {
+		color: @color;
+		opacity: .9;
+		font-style: italic;
+	}
+}

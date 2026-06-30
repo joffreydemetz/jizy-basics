@@ -1,0 +1,13 @@
+/* jizy-basics — theme-independent normalize/reset + base utilities.
+   Build entry: compiled & minified to dist/css/jizy-basics.min.css.
+   Mixins load first so base.less can call .clearfix()/.screenReadersOnly(). */
+
+@import url("less/mixins.less");
+
+@import url("less/normalize/necolas.less");
+@import url("less/normalize/sindresorhus.less");
+@import url("less/base.less");
+
+@media print {
+    @import url("less/normalize/print.less");
+}

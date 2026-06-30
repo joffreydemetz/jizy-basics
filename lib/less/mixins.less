@@ -1,0 +1,161 @@
+/**
+ * force body overflowing on modal display
+ *
+ * OSX 			(Chrome, Safari, Firefox) 		- 15px
+ * Windows XP 	(IE7, Chrome, Firefox) 			- 17px
+ * Windows 7 	(IE10, IE11, Chrome, Firefox) 	- 17px
+ * Windows 8.1 	(IE11, Chrome, Firefox) 		- 17px
+ * Windows 10 	(IE11, Chrome, Firefox) 		- 17px
+ * Windows 10 	(Edge 12/13) 					- 12px
+ */
+/* .fix-modal-padding(){
+	body.modal-overflowing & {
+		.fix-modal-padding-element();
+	}
+} */
+
+/* .fix-modal-padding-element(@width: @scrollbar-width) when (@modal-overflowing = 1){
+	@media (min-width: @grid-breakpoint) {
+		padding-right: @scrollbar-width !important;
+	}
+} */
+
+/* .fix-modal-padding-element(@width: @scrollbar-width) when (@modal-overflowing = 0){
+} */
+
+.screenReadersOnly(){
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.truncate(@maxWidth: 100%; @display: block) {
+	width: @maxWidth;
+	display: @display;
+	.text-overflow();
+}
+
+.text-emphasis-variant(@color){
+	color: @color;
+
+	a&:hover,
+	a&:focus {
+		color: darken(@color, 10%);
+	}
+}
+
+.border-top-radius(@radius){
+	border-top-right-radius: @radius;
+	 border-top-left-radius: @radius;
+}
+.border-right-radius(@radius){
+	border-bottom-right-radius: @radius;
+	   border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius){
+	border-bottom-right-radius: @radius;
+	 border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius){
+	border-bottom-left-radius: @radius;
+	   border-top-left-radius: @radius;
+}
+
+.bg-variant(@color){
+	background-color: @color;
+
+	a&:hover,
+	a&:focus {
+		background-color: darken(@color, 10%);
+	}
+}
+
+.clearfix(){
+	display: flow-root;
+
+	// 1. The space content is one way to avoid an Opera bug when the
+	//    contenteditable attribute is included anywhere else in the document.
+	//    Otherwise it causes space to appear at the top and bottom of elements
+	//    that are clearfixed.
+	// 2. The use of `table` rather than `block` is only necessary if using
+	//    `:before` to contain the top-margins of child elements.
+	//
+	// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+	/* &:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+
+	&:after {
+		clear: both;
+	} */
+}
+
+.clearfloat(){
+	&:before {
+		content: " ";
+		display: table;
+		height: 0;
+		visibility: hidden;
+		clear: both;
+	}
+}
+
+.caret(){
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px dashed;
+	border-top: 4px solid ~"\9"; // IE8
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	margin-left: 0;
+}
+
+.btn-style(@bg: #555; @border: #666; @text: #FFF){
+	background-color: @bg;
+	border-color: @border;
+	color: @text;
+}
+
+.btn-theme(@theme: #555; @text: #FFF) when (@buttons-style = flat){
+	// .btn-style(@theme; darken(@theme, 4%); @text);
+	background-color: @theme;
+	border-color: darken(@theme, 4%);
+	color: @text;
+
+	&:hover,
+	&:focus {
+		// .btn-style(lighten(@theme, 3%); @theme; @text);
+		background-color: lighten(@theme, 3%);
+		border-color: @theme;
+		color: @text;
+	}
+}
+
+.btn-theme(@theme: #555; @text: #FFF) when (@buttons-style = gradient){
+	.linear-gradient(@start-color: @theme; @end-color: darken(@theme, 12%));
+	border-color: darken(@theme, 14%);
+	color: @text;
+	// opacity: 1;
+
+	&:hover,
+	&:focus {
+		opacity: .8;
+	}
+}
