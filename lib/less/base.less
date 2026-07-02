@@ -1,3 +1,4 @@
+/*! basics.css */
 /* Theme-INDEPENDENT base resets & utilities.
  *
  * Carved out of the callisto structure.less. Only rules that reference NO theme
@@ -220,5 +221,128 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 75%;
 		font-weight: normal;
 		line-height: 1;
+	}
+}
+
+// Generic list / definition-list resets — folded in from the html-lists plug
+// (theme-independent element normalization, wanted on every site).
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: 10px;
+
+	ul,
+	ol {
+		margin-bottom: 0;
+	}
+}
+
+dl {
+	margin-top: 0; // Remove browser default
+	margin-bottom: 20px;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin-left: 0; // Undo browser default
+}
+
+// Form-field element normalization — folded in from the forms plug. Var-free
+// except two theming knobs, exposed as :root custom properties so a site can
+// restyle them without recompiling (--jizy-* convention).
+:root {
+	--jizy-form-field-disabled-bg: #f7f7f7;
+	--jizy-form-field-autofill-fg: #222;
+	--jizy-form-field-autofill-bg: #fff;
+}
+
+[type="file"],
+[type="radio"],
+[type="checkbox"] {
+	&.focus,
+	&:focus {
+		outline: none !important;
+		outline-offset: 0 !important;
+	}
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	cursor: pointer;
+}
+
+input,
+select,
+textarea {
+	background-image: none; // Reset unusual Firefox-on-Android default style
+}
+
+// Search inputs in iOS: drop the extra rounded corners; override normalize's content-box.
+input[type="search"] {
+	-webkit-appearance: none;
+	box-sizing: border-box;
+}
+
+select {
+	max-width: 100%;
+
+	&::-ms-expand {
+		border: 0;
+		background-color: transparent;
+	}
+
+	&[multiple],
+	&[size] {
+		height: auto;
+	}
+}
+
+textarea {
+	width: 100%;
+	height: auto;
+}
+
+input,
+select,
+textarea {
+	&[disabled],
+	&[readonly],
+	&.disabled,
+	&.readonly {
+		cursor: not-allowed;
+		opacity: 1; // iOS fix for unreadable disabled content
+		background-color: var(--jizy-form-field-disabled-bg, #f7f7f7) !important;
+	}
+}
+
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+input,
+textarea,
+select {
+	&:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 1000px var(--jizy-form-field-autofill-bg, #fff) inset !important;
+		-webkit-text-fill-color: var(--jizy-form-field-autofill-fg, #222) !important;
+		background-color: var(--jizy-form-field-autofill-bg, #fff) !important;
+		color: var(--jizy-form-field-autofill-fg, #222) !important;
+
+		&:hover,
+		&:focus,
+		&:active {
+			-webkit-box-shadow: 0 0 0 1000px var(--jizy-form-field-autofill-bg, #fff) inset !important;
+			-webkit-text-fill-color: var(--jizy-form-field-autofill-fg, #222) !important;
+			background-color: var(--jizy-form-field-autofill-bg, #fff) !important;
+			color: var(--jizy-form-field-autofill-fg, #222) !important;
+		}
 	}
 }
