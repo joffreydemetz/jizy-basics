@@ -10,8 +10,10 @@ artifact instead of recompiling the same boilerplate on every build.
 | Path | Role |
 |---|---|
 | `dist/css/jizy-basics.min.css` | Prebuilt, minified normalize + base utilities (`.sr-only`, `.clearfix`, base element resets). Theme-independent — identical for every site. Bundle this into the per-site front bundle. |
-| `lib/less/` | Importable LESS **source**: `normalize/*`, `base.less`, `mixins.less` (+ `mixins/*`), `variables.yml`. Consumed by the callisto `callisto:less` pipeline when an app must compile (e.g. admin) and for the theme mixins/default vars. |
-| `lib/js/front.js` | The shared front layer (browser-compat overlay + `JiZy.Template` dispatcher). Raw source, concatenated into the per-site `jizy-front.js` bundle by the callisto jizy-builder. |
+| `lib/less/` | Importable LESS **source**: `normalize/*`, `base.less`, `mixins.less` (+ `mixins/*`, incl. the icon-font `icons.less`), `variables.yml`. Consumed by the callisto `callisto:less` pipeline when an app must compile (e.g. admin) and for the theme mixins/default vars. |
+| `lib/less/plugins/<name>/` | Opt-in, theme-independent CSS plug source, selected the same way as the JS plugins (site `plugs:`). Each plug ships whichever of `structure.less` / `screen.less` / `mobile.less` it needs, plus an optional `tokens.less` that maps its `@vars` (from `installer/template/<name>/css/core/variables.yml`) to runtime-overridable `--jizy-<name>-*` custom properties. Examples: `html-lists`, `html-buttons` / `html-buttons-group` (the `.btn` primitives + `.btn-group`, themed via `--jizy-btn-*`), `messaging`, `nav-toggler`, `appfront`, the `tmpl-footer-*` templates. |
+| `lib/js/front.js` | The shared front layer (`JiZy.Template` response dispatcher + base-url setup). Raw source, concatenated into the per-site `jizy-front.js` bundle by the callisto jizy-builder. |
+| `lib/js/plugins/<name>/<name>.js` | Opt-in vanilla front plugins, bundled right after `front.js` when the site lists `<name>` in its `plugs:`. `nav-toggler` (mobile menu, exposes `JiZy.navToggler()`); `browser` (browser-compatibility check, auto-runs at load, pairs with the `browser` CSS plug). |
 
 ## Two ways to consume
 

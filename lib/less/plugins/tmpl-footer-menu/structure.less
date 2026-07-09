@@ -1,0 +1,40 @@
+.footer-menu {
+	> div {
+		p {
+			&.h {
+				line-height: 1;
+				font-weight: 700;
+				text-transform: uppercase;
+				margin-bottom: 8px;
+			}
+			
+			&.i {
+				line-height: 1;
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	nav {
+		display: flex;
+		// flex-direction: column;
+		// row-gap: 10px;
+		// column-gap: 10px;
+		
+		> a {
+			display: block;
+			font-size: 1.1em;
+			
+			&.active {
+				font-weight: 700;
+			}
+			
+			& + a {
+				margin-top: 6px;
+			}
+		}
+		
+		> span {
+		}		
+	}
+}

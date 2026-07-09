@@ -1,0 +1,21 @@
+/* jizy-basics core theme tokens → CSS custom properties.
+ *
+ * :root defaults for the always-present palette tokens that the shared plugin
+ * structure consumes via `var(--jizy-<token>)`. Compiled with the merged
+ * variable set prepended (jizy-basics defaults + plug + site YAMLs, site
+ * last-wins), so each emitted value is already the site-resolved one — per-site
+ * theming happens HERE, and the shared plugin CSS never recompiles per site.
+ *
+ * Only tokens read directly as property VALUES are exposed. Palette values that
+ * feed colour-deriving mixins (.btn-theme/.bg-variant → darken/lighten) stay
+ * LESS @vars and bake at compile — CSS custom properties can't be darken()ed. */
+:root {
+	--jizy-gray-dark: @gray-dark;
+	--jizy-gray-light: @gray-light;
+	--jizy-gray-lighter: @gray-lighter;
+
+	--jizy-color-success: @color-success;
+	--jizy-color-info: @color-info;
+	--jizy-color-warning: @color-warning;
+	--jizy-color-danger: @color-danger;
+}

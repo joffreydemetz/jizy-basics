@@ -1,0 +1,158 @@
+/* Theme-DEPENDENT base rules (shared across every site — themed via CSS custom
+ * properties, see plugins/core/tokens.less). The theme-independent reset/base
+ * utilities live in jizy-basics lib/less/base.less. Only rules that reference a
+ * theme token / theming mixin remain here.
+ *
+ * Direct token reads use var(--jizy-<token>); tokens passed into colour-deriving
+ * mixins (.bg-variant/.text-emphasis-variant/.btn-theme) stay LESS @vars and
+ * bake at compile (their derived hover shades can't come from a CSS var). */
+
+hr {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	border-width: 1px 0 0 0;
+	border-color: var(--jizy-gray-lighter);
+}
+
+// Contextual backgrounds & texts
+.bg-primary {
+	// Given the contrast here, this is the only class to have its color inverted
+	// automatically.
+	color: #fff;
+	.bg-variant(@color-primary);
+}
+
+.bg-success {
+	.bg-variant(@color-success);
+}
+
+.bg-info {
+	.bg-variant(@color-info);
+}
+
+.bg-warning {
+	.bg-variant(@color-warning);
+}
+
+.bg-danger {
+	.bg-variant(@color-danger);
+}
+
+.text-primary {
+	.text-emphasis-variant(@color-primary);
+}
+
+.text-success {
+	.text-emphasis-variant(@color-success);
+}
+
+.text-info {
+	.text-emphasis-variant(@color-info);
+}
+
+.text-warning {
+	.text-emphasis-variant(@color-warning);
+}
+
+.text-danger {
+	.text-emphasis-variant(@color-danger);
+}
+
+blockquote {
+	padding: 10px 20px;
+	// margin: 10px 0;
+	font-style: italic;
+	border-left: 5px solid var(--jizy-gray-lighter);
+	font-size: 1.2em;
+
+	p,
+	ul,
+	ol {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	footer {
+		display: block;
+		font-size: 90%; // back to default font-size
+		line-height: 1;
+		margin-top: 14px;
+		color: var(--jizy-gray-light);
+
+		&:before {
+			content: '\2014 \00A0'; // em dash, nbsp
+		}
+	}
+}
+
+legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 1.3em;
+	line-height: inherit;
+	color: var(--jizy-gray-dark);
+	border: 0;
+	border-bottom: 1px solid var(--jizy-gray-lighter);
+}
+
+mark {
+	background-color: var(--jizy-color-warning);
+	padding: .2em;
+}
+
+abbr[title] {
+	cursor: help;
+	border-bottom: 1px dotted var(--jizy-gray-light);
+}
+
+.closer {
+	font-family: Helvetica, sans-serif !important;
+	margin-left: 15px;
+	font-size: 40px;
+	line-height: 42px;
+	text-shadow: 0 1px 0 #FFF;
+	color: inherit;
+	cursor: pointer;
+	opacity: 1;
+
+	button& {
+		padding: 0;
+		background: transparent;
+		border: 0;
+		-webkit-appearance: none;
+	}
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		opacity: .8;
+	}
+}
+
+.btn-default {
+	.btn-theme(#EFEFEF; #222);
+	text-shadow: 0 1px 0 fade(@gray-darker, 20%);
+}
+
+// .btn-primary {
+	// .btn-theme(@color-primary; @gray-darker) !important;
+// }
+
+.btn-success {
+	.btn-theme(@color-success; #FFF) !important;
+}
+
+.btn-info {
+	.btn-theme(@color-info; #FFF) !important;
+}
+
+.btn-warning {
+	.btn-theme(@color-warning; #FFF) !important;
+}
+
+.btn-danger	{
+	.btn-theme(@color-danger; #FFF) !important;
+}

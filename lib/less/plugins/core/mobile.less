@@ -1,0 +1,32 @@
+body.noscroll {
+	overflow-y: hidden;
+}
+
+.hidden-xs {
+	display: none !important;
+}
+
+figure.inline {
+	> img {
+		& + img {
+			margin-top: 20px;
+		}
+	}
+
+	> a {
+		& + a {
+			margin-top: 20px;
+		}
+	}
+}
+
+figure.pull-right,
+figure.pull-left {
+	float: none !important;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	img {
+		height: auto !important;
+	}
+}

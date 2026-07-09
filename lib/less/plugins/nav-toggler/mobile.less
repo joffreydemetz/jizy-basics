@@ -1,0 +1,26 @@
+.nav-toggler {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	cursor: pointer;
+	background: var(--jizy-nav-toggler-bg-color);
+	padding: var(--jizy-nav-toggler-padding);
+	border: var(--jizy-nav-toggler-border);
+	user-select: none;
+
+	&:hover,
+	&:focus {
+		opacity: .8;
+	}
+
+	> span:not(.sr-only){
+		width: var(--jizy-nav-toggler-bar-width);
+		height: var(--jizy-nav-toggler-bar-height);
+		background-color: var(--jizy-nav-toggler-bar-color);
+		// display: block;
+
+		& + span:not(.sr-only) {
+			margin-top: 4px;
+		}
+	}
+}

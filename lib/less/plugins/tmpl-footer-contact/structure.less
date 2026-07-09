@@ -1,0 +1,65 @@
+.footer-contact {
+	margin-bottom: 30px;
+	
+	a {
+		position: relative;
+		justify-content: center;
+		
+		// icon
+		
+		> span.glyphicons {
+			flex: 0 0 40px;
+			font-size: 1.3em;
+			margin-right: .5em;
+			
+			&:before {
+				padding: 10px;
+			}
+		}
+		
+		&.map {
+			> span.glyphicons {
+				&:before {
+					// content: "\E503";
+					content: "\E243";
+				}
+			}
+		}
+		
+		&.phone {
+			> span.glyphicons {
+				&:before {
+					content: "\E442";
+				}
+			}
+		}
+		
+		&.email {
+			> span.glyphicons {
+				&:before {
+					content: "\E011";
+				}
+			}
+		}
+		
+		> span:not(.glyphicons) {
+			// title 
+			display: flex;
+			flex-direction: column;
+			
+			> strong {
+				text-transform: uppercase;
+				
+				/* compat */
+				& + br {
+					display: none !important;
+				}
+			}
+		}
+		
+		&:hover,
+		&:focus {
+			background-color: rgba(255,255,255,.2);
+		}
+	}
+}

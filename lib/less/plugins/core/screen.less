@@ -1,0 +1,60 @@
+.visible-xs {
+	display: none !important;
+	// display: block !important;
+}
+
+.dl-horizontal {
+	dt {
+		float: left;
+		width: 160px;
+		clear: left;
+		text-align: right;
+		.text-overflow();
+	}
+	
+	dd {
+		margin-left: 180px;
+	}
+}
+
+figure.inline {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	
+	> img {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 32%;
+		
+		& + img {
+			margin-left: 2%;
+		}
+	}
+	
+	> a {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 32%;
+		
+		& + a {
+			margin-left: 2%;
+		}
+	}
+}
+
+figure.pull-left,
+figure.pull-right {
+	margin-top: 4px;
+	margin-bottom: 6px;
+}
+
+figure.pull-left {
+	margin-right: 20px;
+	margin-left: initial;
+}
+
+figure.pull-right {
+	margin-left: 20px;
+	margin-right: initial;
+} 

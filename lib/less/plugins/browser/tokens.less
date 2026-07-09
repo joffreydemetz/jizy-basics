@@ -1,0 +1,11 @@
+/* browser (incompatible-browser overlay) theme tokens → CSS custom properties.
+ * Prepended only when the `browser` plug is selected (its variables.yml supplies
+ * the @browser-* LESS vars this reads). See plugins/core/tokens.less for the
+ * rationale. */
+:root {
+	--jizy-browser-bg-color: @browser-bg-color;
+	--jizy-browser-bg2-color: @browser-bg2-color;
+	--jizy-browser-fg-color: @browser-fg-color;
+	--jizy-browser-bg-error-color: @browser-bg-error-color;
+	--jizy-browser-fg-error-color: @browser-fg-error-color;
+}

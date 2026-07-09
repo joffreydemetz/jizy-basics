@@ -1,0 +1,20 @@
+/* html-buttons theme tokens → CSS custom properties.
+ * Prepended only when the `html-buttons` plug is selected; its variables.yml
+ * (installer/template/html-buttons/css/core/variables.yml) supplies the @btn-*
+ * LESS vars this reads. See plugins/core/tokens.less for the rationale.
+ * html-buttons-group consumes --jizy-btn-radius / --jizy-btn-group-basis from
+ * here (it depends on html-buttons, so the two are always co-selected). */
+:root {
+	--jizy-btn-padding: @btn-padding;
+	--jizy-btn-font-weight: @btn-font-weight;
+	--jizy-btn-border: @btn-border;
+	--jizy-btn-text-shadow: @btn-text-shadow;
+	--jizy-btn-radius: @btn-radius;
+	--jizy-btn-lg-padding: @btn-lg-padding;
+	--jizy-btn-lg-font-size: @btn-lg-font-size;
+	--jizy-btn-sm-padding: @btn-sm-padding;
+	--jizy-btn-sm-font-size: @btn-sm-font-size;
+	--jizy-btn-xs-padding: @btn-xs-padding;
+	--jizy-btn-xs-font-size: @btn-xs-font-size;
+	--jizy-btn-group-basis: @btn-group-basis;
+}

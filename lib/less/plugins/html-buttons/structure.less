@@ -1,0 +1,45 @@
+.btn {
+	display: inline-block;
+	margin-bottom: 0; // For input.btn
+	font-weight: var(--jizy-btn-font-weight);
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	border: var(--jizy-btn-border);
+	white-space: nowrap;
+	padding: var(--jizy-btn-padding);
+	text-shadow: var(--jizy-btn-text-shadow);
+	touch-action: manipulation;
+	user-select: none;
+
+	&:active,
+	&.active {
+		outline: 0;
+	}
+
+	&.disabled {
+		cursor: not-allowed;
+		opacity: .8;
+	}
+
+	a& {
+		&.disabled {
+			opacity: .7;
+		}
+	}
+
+	&.btn-lg {
+		padding: var(--jizy-btn-lg-padding);
+		font-size: var(--jizy-btn-lg-font-size);
+	}
+
+	&.btn-sm {
+		padding: var(--jizy-btn-sm-padding);
+		font-size: var(--jizy-btn-sm-font-size);
+	}
+
+	&.btn-xs {
+		padding: var(--jizy-btn-xs-padding);
+		font-size: var(--jizy-btn-xs-font-size);
+	}
+}
