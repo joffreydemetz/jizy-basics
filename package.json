@@ -1,6 +1,6 @@
 {
   "name": "jizy-basics",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "browser": "dist/css/jizy-basics.min.css",
   "main": "lib/index.js",
   "type": "module",

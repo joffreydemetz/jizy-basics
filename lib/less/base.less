@@ -206,6 +206,10 @@ object {
 img {
 	vertical-align: middle;
 	-ms-interpolation-mode: bicubic;
+	// width/height attributes (jdz/ui Image emits them so the lazy slot is
+	// reserved) must not freeze the height once CSS sets a width — keep the
+	// ratio instead. Not !important: any themed `... img { height: … }` wins.
+	height: auto;
 }
 
 p {
