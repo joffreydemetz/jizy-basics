@@ -28,10 +28,10 @@
 
 .footer-contect-title(@show-title) when(@show-title=0){
 	.footer-contact {
-		a > span:not(.glyphicons) {
+		a > span:last-child {
 			// display: flex;
 			// flex-direction: row;
-			
+
 			> strong {
 				display: none !important;
 			}
@@ -45,7 +45,7 @@
 
 .footer-contect-title(@show-title) when(@show-title=1){
 	.footer-contact {
-		a > span:not(.glyphicons) {
+		a > span:last-child {
 			display: flex;
 			flex-direction: column;
 		}

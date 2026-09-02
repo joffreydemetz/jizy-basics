@@ -5,44 +5,45 @@
 		position: relative;
 		justify-content: center;
 		
-		// icon
-		
-		> span.glyphicons {
+		// icon = first span, label wrapper = last span (positional contract,
+		// class-neutral: sites bring their own icon-font class on the span)
+
+		> span:first-child {
 			flex: 0 0 40px;
 			font-size: 1.3em;
 			margin-right: .5em;
-			
-			&:before {
-				padding: 10px;
-			}
 		}
-		
+
+		// Default glyphicons codepoints. A site whose own icon-font classes
+		// carry the content (.ico-map etc.) gets the same values, so the
+		// duplication is inert — but a site subsetting DIFFERENT codepoints
+		// must not rely on them.
 		&.map {
-			> span.glyphicons {
+			> span:first-child {
 				&:before {
 					// content: "\E503";
 					content: "\E243";
 				}
 			}
 		}
-		
+
 		&.phone {
-			> span.glyphicons {
+			> span:first-child {
 				&:before {
 					content: "\E442";
 				}
 			}
 		}
-		
+
 		&.email {
-			> span.glyphicons {
+			> span:first-child {
 				&:before {
 					content: "\E011";
 				}
 			}
 		}
-		
-		> span:not(.glyphicons) {
+
+		> span:last-child {
 			// title 
 			display: flex;
 			flex-direction: column;
