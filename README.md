@@ -35,7 +35,7 @@ npm i jizy-basics
 ```
 npm install
 npm run jpack:dist        # → dist/css/jizy-basics.min.css
-npm run jpack:dist-debug  # same, non-minified
+npm run jpack:dist-debug  # same, with verbose build logging
 ```
 
 `dist/` is committed (the published artifact). Rebuild after editing `lib/`.
